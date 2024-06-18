@@ -23,9 +23,9 @@ export default function LayoutUser(props: LayoutUserProps) {
           navigation: props.userNavigation.create,
           name: 'Открыть меню создания постов',
           head: (
-            <div className='flex-shrink-0 rounded-full bg-gray-800 p-1 text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
-              <span className='sr-only'>Открыть меню создания постов</span>
-              <PlusIcon className='h-6 w-6' aria-hidden='true' />
+            <div className='inline-flex items-center rounded-full border border-transparent bg-gray-800 px-3 py-2 text-sm font-medium leading-4 text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
+              <PlusIcon className='h-5 w-5' aria-hidden='true' />
+              <span className='ml-2'>Создать пост</span>
             </div>
           ),
         },
