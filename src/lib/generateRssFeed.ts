@@ -2,6 +2,7 @@ import fs from 'fs'
 import { Feed } from 'feed'
 import { SortOption } from './types/sort-option'
 import { prisma } from '@/server/db'
+import { env } from '@/env.mjs'
 
 export default async function generateRssFeed() {
   const allPosts = await prisma.lostAndFoundItem.findMany({
@@ -30,7 +31,7 @@ export default async function generateRssFeed() {
     },
   })
 
-  const siteURL = 'https://finds.mirea.ru/'
+  const siteURL = env.NEXT_PUBLIC_SITE_URL
   const date = new Date()
   const author = {
     name: 'Mirea Ninja',
@@ -39,9 +40,8 @@ export default async function generateRssFeed() {
   }
 
   const feed = new Feed({
-    title: 'Бюро находок РТУ МИРЭА',
-    description:
-      'Бюро находок - это сервис, который помогает людям находить потерянные вещи и возвращать их владельцам.',
+    title: env.NEXT_PUBLIC_SITE_NAME,
+    description: env.NEXT_PUBLIC_SITE_DESCRIPTION,
     id: siteURL,
     link: siteURL,
     image: `${siteURL}/logo-icons/favicon-16x16.png`,

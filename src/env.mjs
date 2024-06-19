@@ -61,6 +61,13 @@ export const env = createEnv({
     NEXT_PUBLIC_S3_UPLOAD_RESOURCE_FORMATS: z.string().transform((value) => value.split(',')),
     NEXT_PUBLIC_CDN_ENDPOINT_URL: z.string().url(),
     NEXT_PUBLIC_NEXTAUTH_URL: z.string().url(),
+    NEXT_PUBLIC_SITE_NAME: z.string().min(1).default('Lost and Found'),
+    NEXT_PUBLIC_SITE_DESCRIPTION: z
+      .string()
+      .min(1)
+      .default('Lost and Found - сервис по поиску и возврату утерянных вещей'),
+    NEXT_PUBLIC_SITE_URL: z.string().url().default('http://localhost:3000'),
+    NEXT_PUBLIC_SITE_LOGO: z.string().url().default('http://localhost:3000/logo.png'),
   },
   /*
    * Due to how Next.js bundles environment variables on Edge and Client,
@@ -112,7 +119,10 @@ export const env = createEnv({
 
     IMAGE_CAPTION_HOST: process.env.IMAGE_CAPTION_HOST,
 
-    INNGEST_SIGNING_KEY: process.env.INNGEST_SIGNING_KEY,
+    NEXT_PUBLIC_SITE_NAME: process.env.NEXT_PUBLIC_SITE_NAME,
+    NEXT_PUBLIC_SITE_DESCRIPTION: process.env.NEXT_PUBLIC_SITE_DESCRIPTION,
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+    NEXT_PUBLIC_SITE_LOGO: process.env.NEXT_PUBLIC_SITE_LOGO,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.

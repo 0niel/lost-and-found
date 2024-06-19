@@ -18,7 +18,7 @@ export default function DocsSeo(props: DocsNextSeoProps) {
             url: '/logo-icons/apple-touch-icon-precomposed.png',
             width: 300,
             height: 300,
-            alt: `Логотип Mirea Ninja`,
+            alt: `Логотип бюро находок`,
           },
         ],
       }}

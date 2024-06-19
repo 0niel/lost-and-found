@@ -7,13 +7,13 @@ type DefaultSeoProps = Partial<Pick<React.ComponentProps<typeof NextSeo>, 'title
 export default function DefaultSeo(props: DefaultSeoProps) {
   return (
     <NextSeo
-      title={props.title ?? 'Бюро находок РТУ МИРЭА'}
-      description={props.description ?? 'Приложение для агрегации находок и объявлений пропаж'}
-      canonical='https://finds.mirea.ru/'
+      title={props.title ?? env.NEXT_PUBLIC_SITE_NAME}
+      description={props.description ?? env.NEXT_PUBLIC_SITE_DESCRIPTION}
+      canonical={env.NEXT_PUBLIC_SITE_URL}
       openGraph={{
-        url: env.NEXT_PUBLIC_NEXTAUTH_URL,
-        title: 'Бюро находок РТУ МИРЭА',
-        description: 'Приложение для агрегации находок и объявлений пропаж',
+        url: env.NEXT_PUBLIC_SITE_URL,
+        title: env.NEXT_PUBLIC_SITE_NAME,
+        description: env.NEXT_PUBLIC_SITE_DESCRIPTION,
         images: [
           {
             url: '/logo-icons/apple-touch-icon-precomposed.png',
